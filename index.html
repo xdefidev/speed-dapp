@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <title>SPEED FINANCE | Auto-Staking, Auto-Compounding Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="SPEED FINANCE rewards holders with tokens with automatic compounding interest 2,000,000% APY">
+    <meta name="keywords" content="Staking Compounding BSC Crypto Rewards">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel='shortcut icon' type='image/x-icon' href='media/favicon.png' />
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div class="main scene">
+        <div class="header">
+            <input id="menuButton" type="image" src="media/menu_add.svg">
+
+            <div class="wallet">
+                <div class="dropdown">
+                    <button class="dropbtn" id="dropbtn">$SPEED USD</button>
+                    <div class="dropdown-content">
+                        <a
+                            href="">Buy
+                            on PancakeSwap</a>
+                        <a href="https://dexscreener.com/..."
+                            target="_blank">Chart</a>
+                        <a href="#" id="addToken">Add Token to Wallet</a>
+                    </div>
+                </div>
+                <div id="prepare">
+                    <button class="btn btn-primary" id="btn-connect">
+                        Connect wallet
+                    </button>
+                </div>
+                <div id="connected" style="display: none">
+                    <button class="btn btn-primary" id="btn-disconnect">
+                        Disconnect wallet
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="wrap_content">
+            <div id="sidebar">
+                <a href="https://SPEED.com/">
+                    <div class="logo">
+                        <img src="media/logo_text.png" class="logo_text">
+                    </div>
+                </a>
+
+                <ul id="pageList">
+                    <!-- <li><a href="https://hyfinance.net/" class="contentLink"><img src="media/home.png"
+                                class="blacktowhite">Home</a></li> -->
+                    <li><a id="dashboard" class="contentLink selected"><img src="media/dashboard.png"
+                                class="blacktowhite">Dashboard</a></li>
+                    <!-- <li><a id="stake" class="contentLink"><img src="media/stake.png" class="blacktowhite">Stake</a></li> -->
+                    <li><a id="account" class="contentLink"><img src="media/account.png"
+                                class="blacktowhite">Account</a></li>
+                    <li><a id="calculator" class="contentLink"><img src="media/calculator.png"
+                                class="blacktowhite">Calculator</a></li>
+                    <li><a target="_blank"
+                            href=""
+                            class="contentLink"><img src="media/swap.png" class="blacktowhite">Swap</a></li>
+
+                </ul>
+
+
+                <div class="decoration__container1 bd-grid1">
+                    <div class="soc-button">
+                        <a target="_blank" href="https://twitter.com/SPEED_Finance"><img src="media/crypto/twitter.png"
+                                alt="" class="decoration__img"></a>
+                    </div>
+                    <!-- <div class="soc-button">
+                            <a target="_blank" href="https://hyfinance.net/#"><img src="media/crypto/telegram.png" alt="" class="decoration__img"></a>
+                        </div> -->
+                    <div class="soc-button">
+                        <a target="_blank" href="https://medium.com/@SPEEDfinance"><img src="media/crypto/medium.png"
+                                alt="" class="decoration__img"></a>
+                    </div>
+                    <div class="soc-button">
+                        <a target="_blank" href="https://discord.com/invite/SPEEDfinance"><img
+                                src="media/crypto/discord.png" alt="" class="decoration__img"></a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="content">
+
+
+                <div class="dashboard">
+
+                    <div class="group">
+                        <div class="dashboard_row">
+                            <div class="entry">
+                                <div class="text">Market Cap</div>
+                                <div class="number big skeleton" id="marketcap">0.0000</div>
+                            </div>
+                            <div class="entry">
+                                <div class="text">$SPEED price</div>
+                                <div class="number big skeleton" id="price">0.000</div>
+                            </div>
+                            <div class="entry">
+                                <div class="text">Circulating Supply</div>
+                                <div class="number big skeleton" id="circulatingsupply">0.000</div>
+                            </div>
+                        </div>
+                        <div class="dashboard_row spaced">
+                            <div class="entry">
+                                <div class="text">APY</div>
+                                <div class="number big skeleton" id="backedliquidity"> 2,000,000%</div>
+                            </div>
+                            <div class="entry">
+                                <div class="text">Next Rebase</div>
+                                <div class="number big skeleton">
+                                    <!--<p>13 Apr 6:27 pm utc</p>-->
+                                    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                                </div>
+                            </div>
+                            <div class="entry">
+                                <div class="text">Total Supply</div>
+                                <div class="number big skeleton" id="totalsupply">0.000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard_row">
+                        <div class="entry individual_group">
+                            <div class="text">$SPEED price</div>
+                            <div class="number big skeleton" id="price2">0.000</div>
+                        </div>
+                        <div class="entry individual_group">
+                            <div class="text">Market Value of Marketing Assets</div>
+                            <div class="number big skeleton" id="treasury">0.000</div>
+                        </div>
+                    </div>
+                    <div class="dashboard_row">
+                        <div class="entry individual_group">
+                            <div class="text">BNB Liquidity Value</div>
+                            <div class="number big skeleton" id="pool">0.000</div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="account hide">
+                    <div class="wrapper_left">
+
+                        <div class="bottom_statistics">
+                            <div class="dashboard_row">
+                                <div class="entry individual_group">
+                                    <div class="text">Your $SPEED Balance</div>
+                                    <div class="number big skeleton" id="balance">0</div>
+                                </div>
+                                <div class="entry individual_group">
+                                    <div class="text">Balance in USD</div>
+                                    <div class="number big skeleton" id="balanceUSD">0</div>
+
+                                </div>
+                                <div class="entry individual_group">
+                                    <div class="text">Next Rebase</div>
+                                    <div class="number big">
+                                        <!--<p>13 Apr 6:27 pm utc</p>-->
+                                        <span id="hours2">00</span>:<span id="minutes2">00</span>:<span
+                                            id="seconds2">00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+                            <div class="dashboard_row">
+                                <div class="entry individual_group">
+                                    <div class="text">APY</div>
+                                    <div class="number big">2,000,000%</div>
+                                </div>
+                                <div class="entry individual_group">
+                                    <div class="text">Daily Earnings</div>
+                                    <div class="number big skeleton" id="dailyUSD">0</div>
+                                </div>
+                            </div>
+
+                            <div class="border">
+                                <div class="row_dashboard">
+                                    <input id="import_dashboard" type="text" placeholder="Import From Wallet Address"
+                                        pattern="/^0x[a-fA-F0-9]{40}$/">
+                                    <div id="button_dashboard">WALLET</div>
+                                </div>
+                                <div class="wallet_balance row">
+                                    $SPEED price<span id="price3">0</span>
+                                </div>
+                                <div class="nextrewardyield row">
+                                    Next Reward Yield<span id="reward_yield">0.02483%</span>
+                                </div>
+                                <div class="nextrewardamount row">
+                                    Next Reward Amount<span id="next_reward">0</span>
+                                </div>
+                                <div class="roi row">
+                                    ROI (5-Day Rate)<span id="roi_5">12.6560%</span>
+                                </div>
+                                <div class="roi row">
+                                    ROI (5-Day Rate) Amount USD<span id="roi_5_reward">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="calculator hide">
+                    <div class="title">Calculator</div>
+                    <div>Estimate your returns</div>
+                    <div class="dashboard_row calc">
+                        <div class="entry ">
+                            <div class="text">Your Balance</div>
+                            <div class="number big skeleton" id="balance2">0</div>
+                        </div>
+                        <div class="entry ">
+                            <div class="text">APY</div>
+                            <div class="number big">2,000,000%</div>
+                        </div>
+                        <div class="entry ">
+                            <div class="text">Next Rebase</div>
+                            <div class="number big">
+                                <span id="hours3">00</span>:<span id="minutes3">00</span>:<span id="seconds3">00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 100%;">
+                        <div class="import">
+                            <input id="import" type="text" placeholder="Import From Wallet Address"
+                                pattern="/^0x[a-fA-F0-9]{40}$/">
+                            <div id="button_dashboard">WALLET</div>
+                        </div>
+                        <div class="" style="margin-top: 30px; margin-bottom: 30px;"></div>
+                        <div class="inputs">
+                            <div class="full">
+                                SFA Amount
+                                <input id="input" type="number" placeholder="Amount of SPEED tokens">
+                            </div>
+                            <div class="full">
+                                SFA PRICE
+                                <input id="input_price" type="number" placeholder="Price of SPEED">
+                            </div>
+                        </div>
+
+                        <div class="time">
+                            <span><span id="time_input">30</span> Days</span>
+                            <input type="range" id="days" class="styled-slider slider-progress" name="days" min="1"
+                                max="365" value="30" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        Current Wealth:
+                        <span id="totalusd">$0.00</spann>
+                    </div>
+                    <div class="row">
+                        Next Reward Amount:
+                        <span id="import_reward">0</spann>
+                    </div>
+                    <div class="row">
+                        Reward Estimation:
+                        <span id="balance_apy">0.00</spann>
+                    </div>
+                    <div class="row">
+                        Potential Return:
+                        <span id="potential_return">$0.00</spann>
+                    </div>
+
+                </div>
+
+                
+            </div>
+</body>
+
+
+
+</html>
+<script src="js/data.js" type="module"></script>
+<script src="js/ethereum.js" type="module"></script>
+<script src="js/balance.js" type="module"></script>
+<script src="js/countdown.js" type="module"></script>
+<script src="js/sidebar.js" type="module"></script>
+<script src="js/range-input.js"></script>
+<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.5/dist/index.js"></script>
+<script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js">
+</script>
